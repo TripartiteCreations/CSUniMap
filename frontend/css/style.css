@@ -1,0 +1,40 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+#map {
+    width: 100%;
+    height: 90vh;
+}
+
+/* Style for Leaflet layer control */
+.leaflet-control-layers {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 5px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.leaflet-control-layers-toggle {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="3" width="6" height="6" fill="%23555"/><rect x="11" y="3" width="6" height="6" fill="%23999"/><rect x="3" y="11" width="6" height="6" fill="%23ccc"/><rect x="11" y="11" width="6" height="6" fill="%23333"/></svg>') !important;
+}
+
+.leaflet-control-layers label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.leaflet-control-layers-list input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+h1 {
+    margin: 10px;
+    font-size: 24px;
+    color: #333;
+}

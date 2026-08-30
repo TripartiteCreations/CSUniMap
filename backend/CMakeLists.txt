@@ -4,6 +4,7 @@ add_executable(CSU_Minimap_Server
     src/main.cpp
 )
 
+
 target_link_libraries(CSU_Minimap_Server
     PRIVATE
         httplib::httplib

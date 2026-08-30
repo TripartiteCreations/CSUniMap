@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSUniMap</title>
 
-    <title>CSU MiniMap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Inter:wght@400;500;600&display=swap">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/map.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>CSU MiniMap</h1>
-    </header>
+    <main class="page">
+        <h1>CSUniMap</h1>
 
-    <main>
-        <div id="map"></div>
+        <div class="map-frame">
+            <div id="map"></div>
+            <div class="compass-mark">N</div>
+            <div class="frame-vignette"></div>
+        </div>
+
+        <div id="legend" class="legend"></div>
+        <p class="attribution">Map data © OpenStreetMap contributors · Tiles © CARTO</p>
     </main>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-boundary-canvas@1.0.0/src/BoundaryCanvas.js"></script>
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/map.js"></script>
 </body>

@@ -1,24 +1,36 @@
 #include <iostream>
 #include <httplib.h>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
 
 int main()
 {
     httplib::Server server;
 
-    server.Get("/", [](const httplib::Request&, httplib::Response& res)
+    // Test API
+    server.Get("/api/test", [](const httplib::Request&, httplib::Response& res)
         {
-            res.set_content(
-                "<h1>CSU MiniMap</h1><p>Hello from C++!</p>",
-                "text/html"
-            );
+            json response = {
+                {"success", true},
+                {"message", "C++ backend is working!"},
+                {"server", "CSUniMap"},
+                {"version", "0.1.0"}
+            };
+
+            res.set_content(response.dump(), "application/json");
         });
 
-    std::cout << "CSU MiniMap Server starting...\n";
-    std::cout << "Open: http://localhost:8080\n";
+ 
+    std::cout << "CSU MiniMap Server\n";
+
+    std::cout << "Server: http://localhost:8080\n";
+    std::cout << "Test:   http://localhost:8080/api/test\n";
+    std::cout << "\n";
 
     if (!server.listen("0.0.0.0", 8080))
     {
-        std::cerr << "ERROR: Failed to start server on port 8080.\n";
+        std::cerr << "Failed to start server on port 8080.\n";
         return 1;
     }
 

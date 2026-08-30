@@ -1,8 +1,9 @@
 {
   "name": "csunimap",
   "version-string": "0.1.0",
-  "dependencies": [
-    "cpp-httplib"
-  ],
+    "dependencies": [
+        "cpp-httplib",
+        "nlohmann-json"
+    ],
   "builtin-baseline": "ac7af7424cbaf9057cb246b620f455303dccd6ed"
 }

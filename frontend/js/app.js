@@ -90,10 +90,9 @@ function buildLegend() {
     });
 }
 
-// Build a circular GeoJSON boundary sized to comfortably enclose the
-// bounding box of the loaded data, centered on that data.
+
 function buildCircularBoundary(geojson, paddingKm = 0.05) {
-    const bbox = turf.bbox(geojson);                      // [minX, minY, maxX, maxY]
+    const bbox = turf.bbox(geojson);             
     const bboxPolygon = turf.bboxPolygon(bbox);
     const center = turf.center(bboxPolygon);
     const corner = turf.point([bbox[0], bbox[1]]);
@@ -114,7 +113,7 @@ async function loadCampus() {
             if (category) layers[category].addData(feature);
         });
 
-        // Circular boundary, sized from the actual data footprint
+      
         const campusCircle = buildCircularBoundary(mapData);
 
         const clippedTiles = new L.TileLayer.BoundaryCanvas(
@@ -132,8 +131,7 @@ async function loadCampus() {
             if (layer.getLayers().length) bounds.push(layer.getBounds());
         });
 
-        // Fit to the circle itself so the disc is filled edge-to-edge,
-        // rather than just the (usually smaller) feature bounds
+
         const circleBounds = L.geoJSON(campusCircle).getBounds();
         map.fitBounds(circleBounds, { padding: [0, 0] });
 

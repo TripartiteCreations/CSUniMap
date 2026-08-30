@@ -18,7 +18,6 @@ The project is planned to develop progressively through the following stages:
 * [ ] Add campus buildings and locations
 * [ ] Implement interactive map navigation
 * [ ] Add information for selected buildings and locations
-* [ ] Implement building rating functionality
 * [ ] Add designated meeting or hangout locations
 * [ ] Improve the overall user interface and experience
 * [ ] Conduct testing and refinement

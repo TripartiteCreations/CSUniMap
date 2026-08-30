@@ -1,3 +1,6 @@
+
+/// test coms
+
 async function testBackend() {
     try {
         const response = await fetch("http://localhost:8080/api/test");
@@ -19,4 +22,32 @@ async function testBackend() {
     }
 }
 
-testBackend();
+/// map
+const map = L.map("map");
+
+async function loadCampus() {
+    try {
+        const response = await fetch("/api/map");
+
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+        }
+
+        const mapData = await response.json();
+
+        console.log("Loaded map data:", mapData);
+
+        const campusLayer = L.geoJSON(mapData);
+
+        campusLayer.addTo(map);
+
+        map.fitBounds(campusLayer.getBounds());
+
+    } catch (error) {
+        console.error("Failed to load campus map:", error);
+    }
+}
+
+loadCampus();
+//testBackend();
+
